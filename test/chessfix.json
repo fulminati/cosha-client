@@ -1,8 +1,0 @@
-{
-  "epd": "epd",
-  "scripts": {
-    "perft": {
-      "exec": "node script.js ${FEN}"
-    }
-  }
-}

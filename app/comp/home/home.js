@@ -7,8 +7,8 @@
 angular
     .module("app")
     .component("home", {
-        templateUrl: "app/components/home/home.html",
+        templateUrl: "app/comp/home/home.html",
         controller: function($scope) {
-
+            // ...
         }
     });

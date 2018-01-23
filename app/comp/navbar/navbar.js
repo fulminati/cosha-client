@@ -5,14 +5,6 @@
 angular
     .module("app")
     .component("navbar", {
-        templateUrl: "app/components/navbar/navbar.html",
+        templateUrl: "app/comp/navbar/navbar.html",
         controller: function($scope, $rootScope) {}
     });
-
-/**
- *
- */
-function fix_navigator_height() {
-
-
-}

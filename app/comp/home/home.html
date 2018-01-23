@@ -1,6 +1,12 @@
 
 <div class="container-fluid">
 
+    <div ng-repeat="device in $root.devices">
+        <div ng-repeat="token in device.rw">
+            {{ device.id }} - {{ token }}
+        </div>
+    </div>
+
 </div>
 
 

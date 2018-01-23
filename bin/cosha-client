@@ -12,11 +12,11 @@ const fs = require("fs"),
       nodemon = require('nodemon'),
       local = path.join(
           process.cwd(),
-          "node_modules/chessfix/src/chessfix.js"
+          "node_modules/cosha-client/server.js"
       );
 
 nodemon({
-    script: !fs.existsSync(local) ? "../src/chessfix.js" : local,
+    script: !fs.existsSync(local) ? "../server.js" : local,
     ext: 'js json'
 });
 
