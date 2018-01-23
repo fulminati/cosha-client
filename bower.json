@@ -1,0 +1,9 @@
+{
+  "name": "chessfix",
+  "devDependencies": {
+    "angular": "^1.6.4",
+    "angular-ui-router": "^0.4.2",
+    "bulma": "^0.6.1",
+    "jquery": "^3.2.1"
+  }
+}

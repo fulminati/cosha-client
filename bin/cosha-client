@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+/*!
+ * Chessfix - chess engine tuning tool
+ * by Francesco Bianco <bianco@javanile.org>
+ * Copyright(c) 2016-2017 Javanile.org
+ * MIT Licensed
+ */
+
+const fs = require("fs"),
+      path = require("path"),
+      open = require("open"),
+      nodemon = require('nodemon'),
+      local = path.join(
+          process.cwd(),
+          "node_modules/chessfix/src/chessfix.js"
+      );
+
+nodemon({
+    script: !fs.existsSync(local) ? "../src/chessfix.js" : local,
+    ext: 'js json'
+});
+
+nodemon.on('start', function () {
+    console.log('Chessfix start:');
+}).on('quit', function () {
+    console.log('Chessfix close.');
+    process.exit();
+}).on('restart', function (files) {
+    for (let i in files) {
+        if (files.hasOwnProperty(i)) {
+            console.log('Chessfix file change:', files[i]);
+        }
+    }
+});
+
+open("http://localhost:8864");
