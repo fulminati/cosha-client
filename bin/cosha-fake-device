@@ -6,31 +6,33 @@
  * MIT Licensed
  */
 
-const fs = require("fs"),
-      path = require("path"),
-      open = require("open"),
+const fs = require('fs'),
+      path = require('path'),
+      open = require('open'),
       nodemon = require('nodemon'),
-      local = path.join(
+      localServer = path.join(
           process.cwd(),
-          "node_modules/cosha-client/server.js"
+          'node_modules/cosha-client/test/fake-device.js'
+      ),
+      globalServer = path.join(
+          __dirname,
+          '../test/fake-device.js'
       );
 
 nodemon({
-    script: !fs.existsSync(local) ? "../server.js" : local,
+    script: !fs.existsSync(localServer) ? globalServer : localServer,
     ext: 'js json'
 });
 
 nodemon.on('start', function () {
-    console.log('Chessfix start:');
+    console.log('COSHA Fake Device: init');
 }).on('quit', function () {
-    console.log('Chessfix close.');
+    console.log('COSHA Fake Device: exit');
     process.exit();
 }).on('restart', function (files) {
     for (let i in files) {
         if (files.hasOwnProperty(i)) {
-            console.log('Chessfix file change:', files[i]);
+            console.log('COSHA Fake Device: change', files[i]);
         }
     }
 });
-
-open("http://localhost:1983");

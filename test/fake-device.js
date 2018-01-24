@@ -37,5 +37,5 @@ app.post('/w', function (req, res) {
 });
 
 app.listen(1981, function () {
-    console.log('Fake device listening...');
+    console.log('COSHA Fake Device: listening...');
 });

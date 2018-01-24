@@ -12,7 +12,7 @@ const fs = require('fs'),
       nodemon = require('nodemon'),
       localServer = path.join(
           process.cwd(),
-          'node_modules/cosha-client/server.js'
+          'node_modules/cosha-client/src/server.js'
       ),
       globalServer = path.join(
           __dirname,
@@ -26,6 +26,7 @@ nodemon({
 
 nodemon.on('start', function () {
     console.log('COSHA Client: init');
+    open("http://localhost:1983");
 }).on('quit', function () {
     console.log('COSHA Client: exit');
     process.exit();
@@ -36,5 +37,3 @@ nodemon.on('start', function () {
         }
     }
 });
-
-open("http://localhost:1983");
