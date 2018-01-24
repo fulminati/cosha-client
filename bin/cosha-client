@@ -10,13 +10,17 @@ const fs = require('fs'),
       path = require('path'),
       open = require('open'),
       nodemon = require('nodemon'),
-      local = path.join(
+      localServer = path.join(
           process.cwd(),
           'node_modules/cosha-client/server.js'
+      ),
+      globalServer = path.join(
+          __dirname,
+          '../src/server.js'
       );
 
 nodemon({
-    script: !fs.existsSync(local) ? "../src/server.js" : local,
+    script: !fs.existsSync(localServer) ? globalServer : localServer,
     ext: 'js json'
 });
 
