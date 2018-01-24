@@ -5,15 +5,12 @@
  * MIT Licensed
  */
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const app = express();
-const cosha = require('./cosha');
+const cosha = require('./cosha'),
+      express = require('express'),
+      app = express();
 
 //
 app.use(express.static(__dirname + "/../public"));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 //
 app.post('/i', function (req, res) {

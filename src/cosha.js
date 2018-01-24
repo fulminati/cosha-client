@@ -108,6 +108,68 @@ const cosha = {
                 cb(data);
             });
         }
+    },
+
+    /**
+     *
+     */
+    device: {
+
+        /**
+         *
+         * @param cb
+         */
+        i: function (cb)
+        {
+            const data = {
+                ip: cosha.getMyAddress(),
+                id: '5858d286d1ebfa8a13a0676fd4ec0a89',
+                rw: [
+                    'r@D1:on/off',
+                    'r@D2:on/off',
+                    'w@D3:on/off',
+                    'w@D4:on/off'
+                ]
+            }
+
+            cb(data);
+        },
+
+        /**
+         *
+         * @param cb
+         */
+        r: function (cb)
+        {
+            const data = {
+                devices: []
+            };
+
+            // Looking for network devices and start server
+            cosha.findDevices(function(resp) {
+                data.devices = resp.devices;
+                //console.log(devices);
+                cb(data);
+            });
+        },
+
+        /**
+         *
+         * @param cb
+         */
+        w: function (cb)
+        {
+            const data = {
+                devices: []
+            };
+
+            // Looking for network devices and start server
+            cosha.findDevices(function(resp) {
+                data.devices = resp.devices;
+                //console.log(devices);
+                cb(data);
+            });
+        }
     }
 };
 

@@ -10,14 +10,8 @@ const fs = require('fs'),
       path = require('path'),
       open = require('open'),
       nodemon = require('nodemon'),
-      localServer = path.join(
-          process.cwd(),
-          'node_modules/cosha-client/test/fake-device.js'
-      ),
-      globalServer = path.join(
-          __dirname,
-          '../test/fake-device.js'
-      );
+      localServer = path.join(process.cwd(), 'node_modules/cosha-client/test/fake-device.js'),
+      globalServer = path.join(__dirname, '../test/fake-device.js');
 
 nodemon({
     script: !fs.existsSync(localServer) ? globalServer : localServer,
