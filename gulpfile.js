@@ -33,7 +33,7 @@ gulp.task("fonts", function() {
 
 gulp.task("tpl", function() {
     return gulp.src("./app/**/*.html")
-        .pipe(templateCache({root: "app/", module: "app"}))
+        .pipe(templateCache({filename: "tpl.js", root: "app/", module: "app"}))
         .pipe(gulp.dest("app"));
 });
 
@@ -44,7 +44,7 @@ gulp.task("js", function() {
         "./bower_components/angular-ui-router/release/angular-ui-router.min.js",
         "./app/chessboard-0.3.0.js",
         "./app/app.js",
-        "./app/templates.js",
+        "./app/tpl.js",
         "./app/**/*.js"
     ];
     return gulp.src(js)
@@ -65,4 +65,3 @@ gulp.task("watch", function(){
 gulp.task("default", function(done) {
     runSequence("sass", "style", "fonts", "tpl", "js", done);
 });
-

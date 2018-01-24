@@ -31,7 +31,9 @@ module.exports = {
             var ping = 'http://' + nt + i + ':1981/i';
             request(ping, {method: 'POST', json: true}, function (err, res, body) {
                 if (err) { return; }
-                resp.devices.push(body);
+                for (var j = 0; j < 20; j++) {
+                    resp.devices.push(body);
+                }
             });
         }
 

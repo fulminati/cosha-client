@@ -1,14 +1,73 @@
 
-<div class="container-fluid">
 
-    <div ng-repeat="device in $root.devices">
-        <div ng-repeat="token in device.rw">
-            {{ device.id }} - {{ token }}
+<div class="has-text-centered margin-bottom-2px">
+
+    <div class="is-inline-block margin-bottom-8px">
+        <div class="buttons has-addons">
+            <span class="button">One</span>
+            <span class="button">Two</span>
+        </div>
+    </div>&nbsp;
+
+    <div class="is-inline-block margin-bottom-8px">
+        <div class="buttons has-addons">
+            <span class="button">One</span>
+            <span class="button">Two</span>
+            <span class="button">Three</span>
+            <span class="button">Four</span>
+        </div>
+    </div>&nbsp;
+
+    <div class="is-inline-block margin-bottom-8px">
+        <div class="buttons has-addons">
+            <span class="button">Three</span>
+            <span class="button">Four</span>
+        </div>
+    </div>&nbsp;
+
+    <div class="is-inline-block margin-bottom-8px">
+        <div class="buttons has-addons">
+            <span class="button">
+                <i class="fa fa-sort-alpha-asc"></i>
+            </span>
+            <span class="button">
+                <i class="fa fa-sort-alpha-desc"></i>
+            </span>
         </div>
     </div>
 
 </div>
 
+<div class="columns is-multiline is-desktop">
+    <div class="column is-one-third" ng-repeat="device in $root.devices">
+        <div class="card">
+            <div class="card-header">
+                <p class="card-header-title">
+                    {{ device.id }}
+                </p>
+                <a href="#" class="card-header-icon" aria-label="more options">
+                    <span class="icon">
+                        <i class="fa fa-gear" aria-hidden="true"></i>
+                    </span>
+                </a>
+            </div>
+            <div class="card-content">
+                <div ng-repeat="token in device.rw" class="margin-bottom-8px">
+                    {{ token }}
 
+                    <div class="field pull-right" style="width:48px">
+                        <input
+                            id="switchExample"
+                            type="checkbox"
+                            name="switchExample"
+                            class="switch is-success"
+                            checked="checked"
+                            />
+                        <label for="switchExample"></label>
+                    </div>
 
-
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
