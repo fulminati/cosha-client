@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /*!
- * Chessfix - chess engine tuning tool
+ * COSHA Client
  * by Francesco Bianco <bianco@javanile.org>
  * Copyright(c) 2016-2017 Javanile.org
  * MIT Licensed
@@ -33,4 +33,4 @@ nodemon.on('start', function () {
     }
 });
 
-open("http://localhost:8864");
+open("http://localhost:1983");

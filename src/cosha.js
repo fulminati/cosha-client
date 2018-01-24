@@ -1,8 +1,12 @@
+/*!
+ * COSHA Client
+ * by Francesco Bianco <bianco@javanile.org>
+ * Copyright(c) 2016-2017 Javanile.org
+ * MIT Licensed
+ */
 
 const ifaces = require('os').networkInterfaces();
 const request = require('request');
-
-
 
 module.exports = {
 
@@ -31,9 +35,7 @@ module.exports = {
             var ping = 'http://' + nt + i + ':1981/i';
             request(ping, {method: 'POST', json: true}, function (err, res, body) {
                 if (err) { return; }
-                for (var j = 0; j < 20; j++) {
-                    resp.devices.push(body);
-                }
+                resp.devices.push(body);
             });
         }
 
