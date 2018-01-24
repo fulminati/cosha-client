@@ -10,7 +10,8 @@
         "url": "https://github.com/fulminati/cosha-client.git"
     },
     "bin": {
-        "chessfix": "./bin/cosha-client"
+        "cosha-client": "./bin/cosha-client",
+        "cosha-fake-device": "./bin/cosha-fake-device"
     },
     "dependencies": {
         "body-parser": "^1.17.2",
