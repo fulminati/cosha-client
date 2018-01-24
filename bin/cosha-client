@@ -25,15 +25,18 @@ nodemon({
 });
 
 nodemon.on('start', function () {
-    console.log('COSHA Client: init');
-    open("http://localhost:1983");
+    console.log('COSHA Client: start');
 }).on('quit', function () {
-    console.log('COSHA Client: exit');
+    console.log('COSHA Client: close');
     process.exit();
 }).on('restart', function (files) {
     for (let i in files) {
         if (files.hasOwnProperty(i)) {
-            console.log('COSHA Client: change', files[i]);
+            console.log('COSHA Client: alter', files[i]);
         }
     }
 });
+
+setTimeout(function () {
+    open("http://localhost:1983");
+}, 500);

@@ -29,6 +29,6 @@ cosha.findDevices(function(resp) {
     //console.log(devices);
 
     app.listen(1983, function () {
-        console.log('COSHA Client: start...');
+        console.log('COSHA Client: listening...');
     });
 });
