@@ -8,11 +8,15 @@
 const ifaces = require('os').networkInterfaces();
 const request = require('request');
 
-module.exports = {
+const cosha = {
 
+    /**
+     *
+     * @returns {*}
+     */
     getMyAddress: function ()
     {
-        var address;
+        var address = null;
 
         for (var dev in ifaces) {
             ifaces[dev].filter((details) => details.family === 'IPv4' && details.internal === false ? address = details.address: undefined);
@@ -21,6 +25,10 @@ module.exports = {
         return address;
     },
 
+    /**
+     *
+     * @param cb
+     */
     findDevices: function (cb)
     {
         var resp = {
@@ -40,8 +48,70 @@ module.exports = {
         }
 
         setTimeout(function() { cb(resp); }, 1000);
-    }
+    },
 
+    /**
+     *
+     */
+    client: {
+
+        /**
+         *
+         * @param cb
+         */
+        i: function (cb)
+        {
+            const data = {
+                devices: []
+            };
+
+            // Looking for network devices and start server
+            cosha.findDevices(function(resp) {
+                data.devices = resp.devices;
+                //console.log(devices);
+                cb(data);
+            });
+        },
+
+        /**
+         *
+         * @param cb
+         */
+        r: function (cb)
+        {
+            const data = {
+                devices: []
+            };
+
+            // Looking for network devices and start server
+            cosha.findDevices(function(resp) {
+                data.devices = resp.devices;
+                //console.log(devices);
+                cb(data);
+            });
+        },
+
+        /**
+         *
+         * @param cb
+         */
+        w: function (cb)
+        {
+            const data = {
+                devices: []
+            };
+
+            // Looking for network devices and start server
+            cosha.findDevices(function(resp) {
+                data.devices = resp.devices;
+                //console.log(devices);
+                cb(data);
+            });
+        }
+    }
 };
+
+//
+module.exports = cosha;
 
 

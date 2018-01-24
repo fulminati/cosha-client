@@ -10,25 +10,33 @@ const bodyParser = require('body-parser');
 const app = express();
 const cosha = require('./cosha');
 
-var devices = [];
-
+//
 app.use(express.static(__dirname + "/../public"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 //
 app.post('/i', function (req, res) {
-    res.send({
-        devices: devices
+    cosha.client.i(function (data) {
+        res.send(data);
     });
 });
 
-// Looking for network devices and start server
-cosha.findDevices(function(resp) {
-    devices = resp.devices;
-    //console.log(devices);
-
-    app.listen(1983, function () {
-        console.log('COSHA Client: listening...');
+//
+app.post('/r', function (req, res) {
+    cosha.client.r(function (data) {
+        res.send(data);
     });
+});
+
+//
+app.post('/w', function (req, res) {
+    cosha.client.w(function (data) {
+        res.send(data);
+    });
+});
+
+//
+app.listen(1983, function () {
+    console.log('COSHA Client: listening...');
 });
