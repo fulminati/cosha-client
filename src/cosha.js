@@ -47,7 +47,32 @@ const cosha = {
             });
         }
 
-        setTimeout(function() { cb(resp); }, 1000);
+        setTimeout(function() { cb(resp); }, 750);
+    },
+
+    /**
+     *
+     * @param cb
+     */
+    findClients: function (cb)
+    {
+        var resp = {
+            clients: []
+        };
+
+        const my = this.getMyAddress();
+        const ip = my.split('.');
+        const nt = ip[0]+'.'+ip[1]+'.'+ip[2]+'.';
+
+        for (var i = 1; i < 255; i++) {
+            var ping = 'http://' + nt + i + ':1983/i';
+            request(ping, {method: 'POST', json: true}, function (err, res, body) {
+                if (err) { return; }
+                resp.clients.push(body);
+            });
+        }
+
+        setTimeout(function() { cb(resp); }, 750);
     },
 
     /**
